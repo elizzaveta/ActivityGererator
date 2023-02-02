@@ -1,0 +1,32 @@
+@import './base.css';
+
+//Color Palette Variables
+$primary: #50E3C2;
+$accent: #8C88FF;
+$success: #7FD323;
+$error: #FF3366;
+$warning: #FFD806;
+$neutral-gray: #333333;
+$neutral-white: white;
+
+#app {
+  /*max-width: 1280px;*/
+  /*margin: 0 auto;*/
+  /*padding: 2rem;*/
+
+  font-weight: normal;
+}
+body{
+  background: #F9F9F9;
+}
+a{
+  text-decoration: none;
+  color: #F9F9F9;
+}
+a:hover{
+  text-decoration: underline;
+}
+button:hover{
+  cursor: pointer;
+}
+

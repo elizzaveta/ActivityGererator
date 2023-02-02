@@ -1,0 +1,1 @@
+export const apiBaseUrl = "https://www.boredapi.com/api/activity"
