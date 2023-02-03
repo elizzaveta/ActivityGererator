@@ -51,6 +51,13 @@ export default {
   padding: 5px 20px;
   border: 1px solid var(--pacific-blue);
 }
+.favorite-activity:hover{
+  background: var(--soft-white);
+
+}
+h2{
+  width:100%
+}
 h2:hover{
   cursor: pointer;
 }

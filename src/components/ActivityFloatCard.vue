@@ -67,7 +67,6 @@ export default {
 }
 .activity-container {
   width: 100%;
-  /*border: 1px solid #E072A4;*/
   display: flex;
   flex-direction: column;
   justify-content: center;
