@@ -9,7 +9,7 @@
   font-weight: normal;
 }
 body{
-    background: #F9F9F9;
+    background: var(--primary-color);
     height: 100vh;
     /*position: relative;*/
 }

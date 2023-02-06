@@ -1,8 +1,8 @@
 <template>
 <div class="wrapper">
-  <div v-if="loaded" v-for="key in favoritesKeys" :id="key" class="favorite-activity">
-      <h2 :id="key" @click="handleClick($event)">{{this.localStorage.getItem(key)}}</h2>
-      <DeleteButton :activity-id="key"/>
+  <div v-if="loaded" v-for="activity in favorites" :id="activity.id" class="favorite-activity">
+      <h2 :id="activity.id" @click="handleClick($event)">{{activity.text}}</h2>
+      <DeleteButton :activity-id="activity.id"/>
   </div>
   <ActivityFloatCard :activity-id="selectedActivityId" :key="floatCardKey"/>
 </div>
@@ -18,10 +18,11 @@ export default {
   data(){
     return{
       loaded: false,
-      favoritesKeys: [],
+      favorites: [],
       localStorage: window.localStorage,
       selectedActivityId: null,
-      floatCardKey: 0
+      floatCardKey: 0,
+      localStorageFavoritesKey: "favorites"
     }
   },
   methods:{
@@ -31,7 +32,7 @@ export default {
     }
   },
   mounted() {
-    this.favoritesKeys = Object.keys(window.localStorage);
+    this.favorites = JSON.parse(window.localStorage.getItem(this.localStorageFavoritesKey));
     this.loaded = true;
   }
 }
@@ -46,13 +47,14 @@ export default {
 .favorite-activity{
   display: flex;
   justify-content: space-between;
-  background: white;
+  background: var(--secondary-color);
   border-radius: 5px;
   padding: 5px 20px;
+  color: var(--text-color);
   border: 1px solid var(--pacific-blue);
 }
 .favorite-activity:hover{
-  background: var(--soft-white);
+  background: var(--primary-color);
 
 }
 h2{

@@ -1,18 +1,17 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+
+
 </script>
 
-<template>
+<template class="dark-theme">
   <header>
     <Header/>
   </header>
 
   <main>
-<!--    <Filters/>-->
     <router-view></router-view>
-<!--    <ActivityGenerator/>-->
-
   </main>
 
   <footer>
@@ -20,9 +19,10 @@ import Footer from "@/components/Footer.vue";
   </footer>
 </template>
 
+
 <style scoped>
 footer{
-  background: var(--blue);
+  background: var(--footer-color);
   color: #F9F9F9;
   position: absolute;
   top: 100vh;
@@ -30,7 +30,7 @@ footer{
 }
 header{
   border-bottom: 1px solid var(--blue);
-  background: white;
+  background: var(--secondary-color);
 }
 main{
   margin: 50px 0;

@@ -1,7 +1,5 @@
 /* color palette from <https://github.com/vuejs/theme> */
-:root {
-  --soft-white: #f9f9f9;
-  --pink: #e072a4;
+body {
   --green: #b0e198;
   --blue: #6883ba;
   --dark-blue: #3d3b8e;
@@ -9,8 +7,22 @@
   --orange: #ffad69;
   --light-gray: #b4b4b4;
 }
+.light-theme{
+  --primary-color: #f9f9f9;
+  --secondary-color: white;
+  --footer-color: #6883ba;
+  --pink: #e072a4;
+  --text-color: black;
+}
 
 
+.dark-theme{
+  --primary-color: #171C27;
+  --secondary-color: black;
+  --footer-color: black;
+  --pink: #e072a4;
+  --text-color: white;
+}
 
 *,
 *::before,

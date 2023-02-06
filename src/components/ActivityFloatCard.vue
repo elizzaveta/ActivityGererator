@@ -49,7 +49,8 @@ export default {
 <style scoped>
 
 .wrapper {
-  background: white;
+  background: var(--secondary-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,6 +87,6 @@ export default {
   top: 0;
   left: 0;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.38);
 }
 </style>

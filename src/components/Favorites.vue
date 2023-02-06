@@ -20,9 +20,6 @@ export default {
 
     }
   },
-  methods:{
-
-  },
   mounted() {
     if(window.localStorage.length !== 0){
       this.empty = false;
@@ -39,5 +36,8 @@ export default {
   justify-content: center;
   align-items: center;
   height: 30vh;
+}
+.massage-empty-favorites h2{
+  color: var(--text-color);
 }
 </style>

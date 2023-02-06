@@ -64,13 +64,14 @@ export default {
 
 .activity-container {
   width: 80%;
-  background: white;
-  /*border: 1px solid #E072A4;*/
+  background: var(--secondary-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px;
+  border: 1px solid var(--pink);
 }
 
 button {
@@ -78,6 +79,7 @@ button {
   border: none;
   border-radius: 5px;
   background: var(--pink);
+  color: var(--text-color);
 }
 .filters{
   display: flex;
