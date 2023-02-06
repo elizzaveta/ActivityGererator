@@ -21,7 +21,8 @@ export default {
     }
   },
   mounted() {
-    if(JSON.parse(window.localStorage.getItem("favorites"))?.length !== 0){
+    let favorites = JSON.parse(window.localStorage.getItem("favorites"));
+    if(favorites && favorites.length !== 0){
       this.empty = false;
     }
   }
