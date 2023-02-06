@@ -21,7 +21,7 @@ export default {
     }
   },
   mounted() {
-    if(window.localStorage.length !== 0){
+    if(JSON.parse(window.localStorage.getItem("favorites"))?.length !== 0){
       this.empty = false;
     }
   }

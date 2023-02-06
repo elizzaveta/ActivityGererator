@@ -25,7 +25,7 @@ export default {
         if(targetActivity.length === 0){
           this.addToFavorites(this.$props.activityKey, favorites);
         }else{
-          this.removeFromFavorites(targetActivity, favorites);
+          this.removeFromFavorites(targetActivity[0], favorites);
         }
 
       }else {
@@ -52,8 +52,15 @@ export default {
 
   },
   mounted() {
-    if(window.localStorage.getItem(this.$props.activityKey)){
-      this.src = this.activeStar;
+    let favorites = JSON.parse(window.localStorage.getItem("favorites"));
+    if(favorites?.length !== 0){
+      let targetActivity = favorites.filter((activity)=>{
+        return activity.id === this.$props.activityKey;
+      })
+      if(targetActivity.length !== 0){
+        this.src = this.activeStar;
+
+      }
     }
   }
 }
