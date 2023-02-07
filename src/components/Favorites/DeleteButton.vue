@@ -12,7 +12,6 @@ export default {
   props:["activityId"],
   methods:{
     removeSavedActivity(){
-      console.log(this.$props.activityId)
       const htmlActivityElement = document.getElementById(this.$props.activityId);
       let favorites = JSON.parse(window.localStorage.getItem("favorites"));
       let targetActivity = favorites.filter((activity) =>{
@@ -32,7 +31,7 @@ button {
   padding: 2px 5px;
   border: none;
   border-radius: 5px;
-  background: var(--pacific-blue);
+  background: var(--accent-color);
   color: white;
 }
 </style>

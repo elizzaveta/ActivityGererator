@@ -14,47 +14,57 @@
       <h3 class="light-gray">Activity generator</h3>
     </div>
     <div class="right-links-wrapper">
+      <router-link to="/"><h2>Home</h2></router-link>
+      <router-link to="/about"><h2>About</h2></router-link>
       <router-link to="/favorites"><h2>Favorites</h2></router-link>
-      <img class="theme-icon" :src="changeThemeIcon" alt="theme icon" @click="handleThemeChange"/>
+      <router-link to="/settings/appearance">
+        <img class="theme-icon" src="../icons/settingsIcon.png" alt="settings icon">
+      </router-link>
+        <!--      <img class="theme-icon" :src="changeThemeIcon" alt="theme icon" @click="handleThemeChange"/>-->
     </div>
   </div>
 </template>
 
 <script>
-import {uiThemeColors} from "@/config/config";
+import {uiAccentColors, uiThemeColors} from "@/config/config";
 import themeIconBlack from "../icons/themeIconBlack.png"
 import themeIconWhite from "../icons/themeIconWhite.png"
 
 export default {
   name: "Header",
-  data(){
-    return{
+  data() {
+    return {
       theme: uiThemeColors.LIGHT,
       changeThemeIcon: themeIconBlack,
       localStorageThemeKey: "theme"
     }
   },
-  methods :{
-    handleThemeChange(){
-      this.theme = this.theme===uiThemeColors.LIGHT ? uiThemeColors.DARK : uiThemeColors.LIGHT;
-      this.changeThemeIcon = this.changeThemeIcon === themeIconBlack ? themeIconWhite : themeIconBlack;
-      document.getElementsByTagName("body").item(0).className = this.theme;
-      this.addThemeToLocalStorage(this.theme);
+  methods: {
+    setTheme(uiThemeColor, uiAccentColor) {
+      document.getElementsByTagName("body").item(0).className = uiThemeColor + ' ' + uiAccentColor;
     },
-    setTheme(theme){
-      this.theme = theme;
-      this.changeThemeIcon = theme === uiThemeColors.LIGHT ? themeIconBlack : themeIconWhite;
-      document.getElementsByTagName("body").item(0).className = this.theme;
+    getUiThemeColor(themeString){
+      switch (themeString){
+        case uiThemeColors.DARK: return uiThemeColors.DARK;
+        case uiThemeColors.LIGHT: return uiThemeColors.LIGHT;
+        default: return uiThemeColors.LIGHT;
+      }
     },
-    addThemeToLocalStorage(theme){
-      window.localStorage.setItem(this.localStorageThemeKey, theme);
+    getUiAccentColor(accentColorString){
+      switch (accentColorString){
+        case uiAccentColors.PINK: return uiAccentColors.PINK;
+        case uiAccentColors.GREEN: return uiAccentColors.GREEN;
+        case uiAccentColors.BLUE: return uiAccentColors.BLUE;
+        default: return uiAccentColors.PINK;
+      }
     }
   },
   mounted() {
-    let localStorageTheme = window.localStorage.getItem(this.localStorageThemeKey);
-    if(localStorageTheme){
-      localStorageTheme === uiThemeColors.DARK ? this.setTheme(uiThemeColors.DARK) : null;
-    }
+    let localStorageTheme = JSON.parse(window.localStorage.getItem(this.localStorageThemeKey))?.themeMode;
+    let localStorageAccentColor = JSON.parse(window.localStorage.getItem(this.localStorageThemeKey))?.accentColor;
+    let uiThemeColor = this.getUiThemeColor(localStorageTheme);
+    let uiAccentColor = this.getUiAccentColor(localStorageAccentColor);
+    this.setTheme(uiThemeColor, uiAccentColor);
   }
 }
 </script>
@@ -95,17 +105,21 @@ export default {
 .light-gray {
   color: var(--light-gray);
 }
-a{
-  color: var(--blue)
+
+a {
+  color: var(--accent-color);
 }
-.theme-icon{
-  height: 25px;
-  width: 25px;
+
+.theme-icon {
+  height: 20px;
+  width: 20px;
   cursor: pointer;
 }
-.right-links-wrapper{
+
+.right-links-wrapper {
   display: flex;
   gap: 20px;
   align-items: center;
+  font-size: 14px;
 }
 </style>

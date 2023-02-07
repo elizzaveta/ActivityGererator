@@ -53,7 +53,7 @@ export default {
   },
   mounted() {
     let favorites = JSON.parse(window.localStorage.getItem("favorites"));
-    if(favorites?.length !== 0){
+    if(favorites && favorites.length !== 0){
       let targetActivity = favorites.filter((activity)=>{
         return activity.id === this.$props.activityKey;
       })

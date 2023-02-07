@@ -29,7 +29,7 @@ footer{
   width: 100%
 }
 header{
-  border-bottom: 1px solid var(--blue);
+  border-bottom: 1px solid var(--accent-color);
   background: var(--secondary-color);
 }
 main{

@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Types from "@/components/Filters/Types.vue";
-import Participants from "@/components/Filters/Participants.vue";
-import Price from "@/components/Filters/Price.vue";
-import Multiselect from "@/components/Filters/Multiselect.vue";
+import Types from "@/components/Favorites/Filters/Types.vue";
+import Participants from "@/components/Favorites/Filters/Participants.vue";
+import Price from "@/components/Favorites/Filters/Price.vue";
+import Multiselect from "@/components/Favorites/Filters/Multiselect.vue";
 
 export default {
   name: "Filters",

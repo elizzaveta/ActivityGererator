@@ -14,7 +14,15 @@ body {
   --pink: #e072a4;
   --text-color: black;
 }
-
+.pink-accent{
+  --accent-color: #e072a4
+}
+.green-accent{
+  --accent-color: #b0e198
+}
+.blue-accent{
+  --accent-color: rgba(71, 168, 189)
+}
 
 .dark-theme{
   --primary-color: #171C27;

@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^9.12.0",
     "primevue": "^3.23.0",
     "vue": "^3.2.45",
     "vue-multiselect": "^3.0.0-alpha.2",

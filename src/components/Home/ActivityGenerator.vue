@@ -23,14 +23,19 @@
 <script>
 import {GET} from "@/api/GET";
 import StarIcon from "@/components/StarIcon.vue";
+import { onKeyStroke } from '@vueuse/core';
+onKeyStroke(['ArrowUp'], (e) => {
+  this.fetchActivity();
+});
 
 export default {
+
   components: {StarIcon},
   data() {
     return {
       loaded: false,
       key: "",
-      activity: "Press 'Generate' button to get activity",
+      activity: "Press 'Generate' button or press 'Enter' to get activity",
       type: "",
       participants: "",
       cost: "0",
@@ -47,8 +52,17 @@ export default {
       this.cost = data.value.cost? data.value.cost : "0";
       this.loaded = true;
       this.starKey++;
+    },
+    handleEnterKeyPress(event){
+      if(event.code === "Enter"){
+        this.fetchActivity();
+      }
     }
+  },
+  mounted() {
+    document.addEventListener("keydown", this.handleEnterKeyPress);
   }
+
 }
 </script>
 
@@ -64,21 +78,22 @@ export default {
 
 .activity-container {
   width: 80%;
-  background: var(--secondary-color);
+  /*background: var(--secondary-color);*/
   color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  border: 1px solid var(--pink);
+  border: 1px solid var(--accent-color);
+  border-radius: 20px;
 }
 
 button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background: var(--pink);
+  background: var(--accent-color);
   color: var(--text-color);
 }
 .filters{

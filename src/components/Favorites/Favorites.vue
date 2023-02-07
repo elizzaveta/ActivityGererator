@@ -9,15 +9,14 @@
 
 <script>
 import NavigationButton from "@/components/NavigationButton.vue";
-import FavoritesList from "@/components/FavoritesList.vue";
+import FavoritesList from "@/components/Favorites/FavoritesList.vue";
 
 export default {
   name: "Favorites",
   components: {FavoritesList, NavigationButton},
   data(){
     return{
-      empty: true,
-
+      empty: true
     }
   },
   mounted() {

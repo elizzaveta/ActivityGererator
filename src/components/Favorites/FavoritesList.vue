@@ -1,6 +1,6 @@
 <template>
-<div class="wrapper">
-  <div v-if="loaded" v-for="activity in favorites" :id="activity.id" class="favorite-activity">
+<div v-if="loaded" class="wrapper">
+  <div v-for="activity in favorites" :id="activity.id" class="favorite-activity">
       <h2 :id="activity.id" @click="handleClick($event)">{{activity.text}}</h2>
       <DeleteButton :activity-id="activity.id"/>
   </div>
@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import DeleteButton from "@/components/DeleteButton.vue";
-import ActivityFloatCard from "@/components/ActivityFloatCard.vue";
+import DeleteButton from "@/components/Favorites/DeleteButton.vue";
+import ActivityFloatCard from "@/components/Favorites/ActivityFloatCard.vue";
 
 export default {
   name: "FavoritesList",
@@ -51,7 +51,7 @@ export default {
   border-radius: 5px;
   padding: 5px 20px;
   color: var(--text-color);
-  border: 1px solid var(--pacific-blue);
+  border: 1px solid var(--accent-color);
 }
 .favorite-activity:hover{
   background: var(--primary-color);
