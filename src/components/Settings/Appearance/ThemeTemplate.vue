@@ -43,6 +43,8 @@ export default {
       }
       localStorageTheme.themeMode = this.$props.theme.className;
       window.localStorage.setItem("theme", JSON.stringify(localStorageTheme));
+      let settings = document.getElementById("settingsIcon");
+      settings.setAttribute("key", this.$props.theme.className)
     }
   },
   mounted() {

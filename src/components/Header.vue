@@ -18,7 +18,8 @@
       <router-link to="/about"><h2>About</h2></router-link>
       <router-link to="/favorites"><h2>Favorites</h2></router-link>
       <router-link to="/settings/appearance">
-        <img class="theme-icon" src="../icons/settingsIcon.png" alt="settings icon">
+        <h2>Settings</h2>
+<!--          <img id="settingsIcon" class="theme-icon" src="../icons/settingsIcon.svg" alt="settings icon"/>-->
       </router-link>
         <!--      <img class="theme-icon" :src="changeThemeIcon" alt="theme icon" @click="handleThemeChange"/>-->
     </div>
@@ -27,21 +28,27 @@
 
 <script>
 import {uiAccentColors, uiThemeColors} from "@/config/config";
-import themeIconBlack from "../icons/themeIconBlack.png"
-import themeIconWhite from "../icons/themeIconWhite.png"
+import settingsIconGray from "../icons/settingsIconGray.png"
+import settingsIconWhite from "../icons/settingsIconWhite.png"
 
 export default {
   name: "Header",
   data() {
     return {
       theme: uiThemeColors.LIGHT,
-      changeThemeIcon: themeIconBlack,
-      localStorageThemeKey: "theme"
+      localStorageThemeKey: "theme",
+      settingsIcon: settingsIconGray,
+      iconKey: 1
     }
   },
   methods: {
     setTheme(uiThemeColor, uiAccentColor) {
       document.getElementsByTagName("body").item(0).className = uiThemeColor + ' ' + uiAccentColor;
+      if(uiThemeColor === uiThemeColors.DARK) {
+        this.settingsIcon = settingsIconWhite;
+      }else{
+        this.settingsIcon = settingsIconGray;
+      }
     },
     getUiThemeColor(themeString){
       switch (themeString){
@@ -115,7 +122,9 @@ a {
   width: 20px;
   cursor: pointer;
 }
-
+svg{
+  fill: red;
+}
 .right-links-wrapper {
   display: flex;
   gap: 20px;
