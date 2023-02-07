@@ -60,7 +60,7 @@ export default {
 h1{
   color: var(--text-color);
 }
-p{
+p, ul{
   color: var(--text-color);
 }
 a {
