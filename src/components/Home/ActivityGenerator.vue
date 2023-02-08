@@ -77,7 +77,7 @@ export default {
 }
 
 .activity-container {
-  width: 80%;
+  width: 100%;
   /*background: var(--secondary-color);*/
   color: var(--text-color);
   display: flex;
@@ -88,7 +88,10 @@ export default {
   border: 1px solid var(--accent-color);
   border-radius: 20px;
 }
-
+h2{
+  text-align: center;
+  margin-bottom: 5px
+}
 button {
   padding: 10px 20px;
   border: none;
