@@ -18,10 +18,10 @@
       <router-link to="/about"><h2>About</h2></router-link>
       <router-link to="/favorites"><h2>Favorites</h2></router-link>
       <router-link to="/settings/appearance">
-        <h2>Settings</h2>
-<!--          <img id="settingsIcon" class="theme-icon" src="../icons/settingsIcon.svg" alt="settings icon"/>-->
+        <svg id="svgSettingsIcon" :class="svgClassName" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+          <image href="../icons/settingsIcon.svg" height="20" width="20" />
+        </svg>
       </router-link>
-        <!--      <img class="theme-icon" :src="changeThemeIcon" alt="theme icon" @click="handleThemeChange"/>-->
     </div>
   </div>
 </template>
@@ -38,17 +38,13 @@ export default {
       theme: uiThemeColors.LIGHT,
       localStorageThemeKey: "theme",
       settingsIcon: settingsIconGray,
-      iconKey: 1
+      svgClassName: null
     }
   },
   methods: {
     setTheme(uiThemeColor, uiAccentColor) {
       document.getElementsByTagName("body").item(0).className = uiThemeColor + ' ' + uiAccentColor;
-      if(uiThemeColor === uiThemeColors.DARK) {
-        this.settingsIcon = settingsIconWhite;
-      }else{
-        this.settingsIcon = settingsIconGray;
-      }
+      this.svgClassName = uiThemeColor+"-svg"
     },
     getUiThemeColor(themeString){
       switch (themeString){
@@ -117,13 +113,14 @@ a {
   color: var(--accent-color);
 }
 
-.theme-icon {
-  height: 20px;
-  width: 20px;
+svg {
   cursor: pointer;
 }
-svg{
-  fill: red;
+.light-theme-svg{
+  filter: invert(0);
+}
+.dark-theme-svg{
+  filter: invert(1);
 }
 .right-links-wrapper {
   display: flex;

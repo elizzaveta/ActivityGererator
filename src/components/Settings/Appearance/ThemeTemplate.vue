@@ -34,6 +34,8 @@ export default {
       }
 
       document.getElementsByTagName("body")[0].className = this.$props.theme.className + ' ' + accentColor;
+      let element = document.getElementById("svgSettingsIcon");
+      element.classList.value = this.$props.theme.className+"-svg"
 
       if(!localStorageTheme){
         localStorageTheme = {
@@ -44,7 +46,6 @@ export default {
       localStorageTheme.themeMode = this.$props.theme.className;
       window.localStorage.setItem("theme", JSON.stringify(localStorageTheme));
       let settings = document.getElementById("settingsIcon");
-      settings.setAttribute("key", this.$props.theme.className)
     }
   },
   mounted() {
