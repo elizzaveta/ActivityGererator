@@ -77,11 +77,4 @@ export default {
   padding: 12px;
   align-items: center;
 }
-.checkbox{
-  border-radius: 50%;
-  height: 17px;
-  width: 17px;
-  border: 1px solid var(--text-color);
-}
-
 </style>

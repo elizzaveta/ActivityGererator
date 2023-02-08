@@ -28,8 +28,7 @@ export default {
   border: 1px solid var(--accent-color);
   height: 100%;
   display: flex;
-  gap:60px;
-  padding: 40px 40px;
+  flex-wrap: wrap;
   color: var(--text-color);
 }
 .settings-menu{
@@ -44,5 +43,17 @@ a{
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+@media (min-width: 1000px) {
+  .wrapper{
+    padding: 40px 40px;
+    gap:60px;
+  }
+}
+@media (max-width: 1000px) {
+  .wrapper{
+    padding: 10px 10px;
+    gap:20px;
+  }
 }
 </style>
