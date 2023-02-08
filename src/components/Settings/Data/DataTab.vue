@@ -5,18 +5,27 @@
     <p>You have {{numOfFavoriteActivities}} activities saved.</p>
     <button @click="handleClearButtonClick" :disabled="isDisabled">Clear</button>
     <h2>Export data</h2>
-    <p>Export your favorites to .txt file</p>
-    <button>Export</button>
+    <p>Export your favorites to a file</p>
+    <button @click="handleExportButtonClick">Export</button>
+    <select v-model="selected">
+      <option v-for="option in options" v-bind:value="option">
+        {{ option }}
+      </option>
+    </select>
+    <span> file format: .{{ selected }}</span>
   </div>
 </template>
 
 <script>
+import {excelParser} from "@/ExportJsonToFile";
 export default {
   name: "DataTab",
   data(){
     return{
       numOfFavoriteActivities: 0,
       isDisabled: true,
+      options: ['csv', 'xls', 'json', 'txt', 'xml'],
+      selected: 'csv'
     }
   },
   methods:{
@@ -31,7 +40,10 @@ export default {
     },
     clearUserData(){
       window.localStorage.removeItem("favorites");
-
+    },
+    handleExportButtonClick(){
+      let favorites = JSON.parse(window.localStorage.getItem("favorites"))
+      excelParser().exportDataFromJSON(favorites,"favorites", this.selected)
     }
   },
   mounted() {
