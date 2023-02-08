@@ -126,6 +126,6 @@ svg {
   display: flex;
   gap: 20px;
   align-items: center;
-  font-size: 14px;
+  font-size: 12px;
 }
 </style>
