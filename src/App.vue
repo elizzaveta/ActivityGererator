@@ -5,7 +5,7 @@ import Footer from "@/components/Footer.vue";
 
 </script>
 
-<template class="dark-theme">
+<template>
   <header>
     <Header/>
   </header>
@@ -21,11 +21,12 @@ import Footer from "@/components/Footer.vue";
 
 
 <style scoped>
+
 footer{
   background: var(--footer-color);
   color: #F9F9F9;
   position: absolute;
-  top: 100vh;
+  bottom: -88px;
   width: 100%
 }
 header{

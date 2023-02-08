@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Data</h1>
-    <p v-if="numOfFavoriteActivities===0">You don't have any saved activities.</p>
+    <p v-if="numOfFavoriteActivities===0">You don't have any saved activities. <router-link to="/">Go to generator</router-link></p>
     <p v-if="numOfFavoriteActivities!==0">You have
       {{numOfFavoriteActivities}}
       activit<span v-if="numOfFavoriteActivities===1">y</span>
@@ -75,5 +75,9 @@ button{
   border: none;
   border-radius: 5px;
   background: var(--accent-color);
+}
+a{
+  text-decoration: underline;
+  color: var(--text-color);
 }
 </style>
