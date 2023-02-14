@@ -12,7 +12,7 @@
       </div>
 
     </div>
-    <button @click="fetchActivity">
+    <button id="generateButton" @click="fetchActivity">
       <h3>
         Generate
       </h3>
@@ -55,6 +55,7 @@ export default {
     },
     handleEnterKeyPress(event){
       if(event.code === "Enter"){
+        document.getElementById("generateButton").blur();
         this.fetchActivity();
       }
     }
